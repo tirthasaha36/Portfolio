@@ -394,6 +394,29 @@
       .contact-info, .contact-form {
         flex: 1 1 100%;
       }
+      /* Responsive fixes for Education, Experience, and Projects sections */
+      #education .carousel-track,
+      #experience .carousel-track,
+      #projects .carousel-track {
+        flex-wrap: wrap;
+      }
+      #education .carousel-item,
+      #experience .carousel-item,
+      #projects .carousel-item {
+        min-width: 100%;
+        padding: 10px 0;
+      }
+      #education .item-title,
+      #experience .item-title,
+      #projects .item-title,
+      #education .item-subtitle,
+      #experience .item-subtitle,
+      #projects .item-subtitle,
+      #education .item-desc,
+      #experience .item-desc,
+      #projects .item-desc {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -458,19 +481,19 @@
       <div class="carousel-container" aria-live="polite" aria-atomic="true">
         <div class="carousel-track" id="education-track">
           <div class="carousel-item">
-            <div class="item-title">The San Francisco Business School</div>
-            <div class="item-subtitle">2035 - 2035</div>
-            <div class="item-desc">This is a description of your education. Concisely describe your certificate, degree or course in a way that’s easy for readers to scan quickly.</div>
+            <div class="item-title">Dinhata High School (H.S.)</div>
+            <div class="item-subtitle">2015 - 2020</div>
+            <div class="item-desc">Completed foundational education from Class 5 to 10 with a strong academic record. Focused on core subjects such as Mathematics, Physical Science, and Computer Studies, laying the groundwork for a technical career.</div>
           </div>
           <div class="carousel-item">
-            <div class="item-title">NYC School of Marketing and Advertising</div>
-            <div class="item-subtitle">2035 - 2035</div>
-            <div class="item-desc">This is a description of your education. Concisely describe your certificate, degree or course in a way that’s easy for readers to scan quickly.</div>
+            <div class="item-title">Purba Barasat Adarsha Vidyapith</div>
+            <div class="item-subtitle">2021 - 2022</div>
+            <div class="item-desc">Completed Higher Secondary education (Class 11 & 12) with a specialization in Science stream. Developed a deeper understanding of Physics, Chemistry, Mathematics, and Computer Science, which prepared me for engineering studies.</div>
           </div>
           <div class="carousel-item">
-            <div class="item-title">L.A. University of Applied Sciences</div>
-            <div class="item-subtitle">2035 - 2035</div>
-            <div class="item-desc">This is a description of your education. Concisely describe your certificate, degree or course in a way that’s easy for readers to scan quickly.</div>
+            <div class="item-title">University of Engineering & Management, Jaipur</div>
+            <div class="item-subtitle">2023 - Present</div>
+            <div class="item-desc">Pursuing B.Tech in Computer Science and Engineering with a specialization in Artificial Intelligence and Machine Learning. Actively involved in projects related to web development, machine learning, and AR/VR applications. Gaining practical experience through hackathons, internships, and personal projects.</div>
           </div>
         </div>
         <div class="carousel-dots" id="education-dots"></div>
