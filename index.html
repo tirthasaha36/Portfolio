@@ -93,6 +93,9 @@
       z-index: 1;
       margin-bottom: 10px;
       letter-spacing: 1.5px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1s ease forwards 0.3s;
     }
 
     .hero h3 {
@@ -102,6 +105,9 @@
       letter-spacing: 3px;
       z-index: 1;
       margin-top: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1s ease forwards 0.6s;
     }
 
     .profile-pic {
@@ -115,6 +121,9 @@
       background: white;
       overflow: hidden;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      animation: profileFadeIn 1s ease forwards 0.9s;
     }
 
     .profile-pic img {
@@ -446,6 +455,40 @@
         font-size: 0.9rem !important;
       }
     }
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes profileFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Fade-in animation for sections */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   </style>
 </head>
 <body>
@@ -465,6 +508,27 @@
       link.click();
       document.body.removeChild(link);
     }
+
+    // Scroll fade-in animation for sections
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main.content section');
+      sections.forEach(section => {
+        section.classList.add('fade-in-section');
+      });
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
   </script>
 
   <section class="hero" aria-label="Hero Section">
